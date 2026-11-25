@@ -1,0 +1,12 @@
+
+1. What would happen if you forgot @Retention(RetentionPolicy.RUNTIME)?
+
+If we forget @Retention(RetentionPolicy.RUNTIME), the annotation will not be available at runtime. Java uses CLASS retention by default. As a result, our framework cannot read the annotation using Reflection during program execution.
+
+2. Map each CampusBoot annotation to its Spring Boot equivalent and name one thing real Spring does that your mini-framework does not.
+
+@Component maps to @Component, @Value maps to @Value, @Range maps to validation annotations such as @Min and @Max, and @Route maps to @GetMapping. Real Spring provides dependency injection, automatic component scanning, and many other advanced features that our mini-framework does not support.
+
+3. Why is setAccessible(true) both powerful and risky?
+
+setAccessible(true) allows Reflection to access private fields and methods that are normally restricted. It is powerful because our framework can inject values into private fields. However, it is risky because it can bypass encapsulation and expose internal data.
